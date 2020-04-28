@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'add-new-reminder',
+    loadChildren: () => import('./add-new-reminder/add-new-reminder.module').then( m => m.AddNewReminderPageModule)
+  },
+  {
+    path: 'your-reminders',
+    loadChildren: () => import('./your-reminders/your-reminders.module').then( m => m.YourRemindersPageModule)
   }
 ];
 @NgModule({

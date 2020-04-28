@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Your Reminders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="arrayOfReminders.length > 0">
+    <ion-item *ngFor="let reminder of arrayOfReminders; let i = index" button (click)="editReminder(reminder, i)">
+      <ion-label text-wrap>{{reminder.reminderTitle}} : {{reminder.reminderFrom | date: 'MMM dd, yyyy'}} on
+        {{reminder.reminderOn | date: 'h:mm a'}}</ion-label>
+      <ion-button fill="clear" (click)="editReminder(reminder, i)">
+        <ion-icon slot="end" name="create"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" color="danger" (click)="removeReminder(i)">
+        <ion-icon slot="end" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="arrayOfReminders.length == 0">
+    <ion-item>
+      <ion-label>
+        No Reminders Found, Add Some
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
